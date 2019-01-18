@@ -58,7 +58,7 @@ app.use(bodyParser.json());
 
 //Set public folder
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join('uploads')));
 
 app.get('/', (req, res, next) => {
     Article.find({}, function(err, articles) {
@@ -78,6 +78,15 @@ app.get('/article', (req, res,next) => {
        title:'Add Article'
     });
     console.log('add page');
+});
+
+//get single article
+app.get('/article/:id', function (req, res){
+    Article.findById(req.params.id, function(err, article){
+        res.render('view-article', {
+            article: article
+        });
+    });
 });
 
 //POST route for submiting articles

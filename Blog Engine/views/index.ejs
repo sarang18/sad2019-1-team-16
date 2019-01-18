@@ -12,21 +12,28 @@
 <body>
     <%- include('includes/navigation.ejs') %>
     <div class="container">
-        <!-- <h3>Hello: <%= articles %></h3> -->
+        <!-- <h3>Hello:
+            <%= articles %>
+        </h3> -->
         <br>
         <h3>Welcome to our Blog Engine</h3><br>
         <% for (let article of articles) { %>
         <div>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <h5><%= article.title %></h5>
-                    <hr>
-                    <%= article.author %>
-                    <hr>
-                    <%= article.body %>
-                    <hr><img src="<%= article.articleImage %>" alt="" class="img-responsive" width="100%">
-                </li>
-            </ul>
+            <a href="/article/<%= article._id %>" class="list-group-item clearfix">
+                <div class="float-left">
+
+                    <h4 class="list-group-item-heading">
+                        <%= article.title %>
+                    </h4>
+
+                    <p class="list-group-item-text">Written By:
+                        <%= article.author %>
+                    </p>
+                </div>
+                <div class="float-right">
+                    <img src="<%= article.articleImage %>" alt="" class="img-responsive" width="100px" height="100px">
+                </div>
+            </a>
 
         </div>
         <% } %>
