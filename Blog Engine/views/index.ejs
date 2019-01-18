@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,29 @@
     <title>Articles</title>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
+
 <body>
-    <h3>Hello: <%= articles %></h3>
-    <% for (let article of articles) { %>
+    <%- include('includes/navigation.ejs') %>
+    <div class="container">
+        <!-- <h3>Hello: <%= articles %></h3> -->
+        <br>
+        <h3>Welcome to our Blog Engine</h3><br>
+        <% for (let article of articles) { %>
         <div>
-            <p><%= article.title %></p>
-            <p><%= article.author %></p>
-            <p><%= article.body %></p>
-            <img src="<%= article.articleImage %>" alt="" class="img-responsive" width="304" height="236">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h5><%= article.title %></h5>
+                    <hr>
+                    <%= article.author %>
+                    <hr>
+                    <%= article.body %>
+                    <hr><img src="<%= article.articleImage %>" alt="" class="img-responsive" width="100%">
+                </li>
+            </ul>
+
         </div>
-    <% } %>
+        <% } %>
+    </div>
 </body>
+
 </html>
