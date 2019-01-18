@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,26 @@
     <title>View Article</title>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
+
 <body>
     <%- include('includes/navigation.ejs') %>
     <div class="container">
         <br>
         <li class="list-group-item">
-                <h5><%= article.title %></h5>
-                <hr>
-                Written By: <%= article.author %>
-                <hr><img src="/<%= article.articleImage %>" alt="" class="img-responsive" width="100%">
-                <hr>
-                <%= article.body %>
-            </li>
+            <h4>
+                <%= article.title %>
+            </h4>
+            <hr>
+            Written By:
+            <%= article.author %>
+            <hr><img src="/<%= article.articleImage %>" alt="" class="img-responsive" width="100%">
+            <hr>
+            <%= article.body %>
+        </li>
+<br>
+        <a class="btn btn-default" href="/article/edit/<%= article._id %>">Edit</a>
+        <a class="btn btn-danger" href="#">Delete Post</a>
     </div>
 </body>
+
 </html>

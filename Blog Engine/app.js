@@ -107,4 +107,35 @@ app.post('/article', upload.single('articleImage'), (req, res, next) => {
     });
 });
 
+//Loading edit form
+app.get('/article/edit/:id', function (req, res){
+    Article.findById(req.params.id, function(err, article){
+        res.render('edit-article', {
+            title: 'Edit Article',
+            article: article
+        });
+    });
+});
+
+//Update Submit POST Route
+app.post('/article/edit/:id', upload.single('articleImage'), (req, res, next) => {
+    console.log(req.file);
+    let article = {};
+    article.title = req.body.title;
+    article.author = req.body.author;
+    article.body = req.body.body;
+    if(req.file != undefined || req.file != null){
+        article.articleImage = req.file.filename;
+    }
+    let query = {_id:req.params.id}
+    Article.update(query, article,function(err) {
+        if(err){
+            console.log(err);
+            return;
+        } else {
+            res.redirect('/');
+        }
+    });
+});
+
 app.listen(1010);
