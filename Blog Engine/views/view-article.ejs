@@ -24,9 +24,9 @@
             <hr>
             <%= article.body %>
         </li>
-<br>
+    <br>
         <a class="btn btn-default" href="/article/edit/<%= article._id %>">Edit</a>
-        <a class="btn btn-danger" href="#">Delete Post</a>
+        <a class="btn btn-danger delete-article" data-id="<%= article._id %>" href="#">Delete Post</a>
     </div>
 </body>
 
