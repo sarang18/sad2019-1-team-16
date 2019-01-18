@@ -84,6 +84,7 @@ app.get('/article', (req, res,next) => {
 app.get('/article/:id', function (req, res){
     Article.findById(req.params.id, function(err, article){
         res.render('view-article', {
+            title: 'View Article',
             article: article
         });
     });

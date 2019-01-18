@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-</head>
+<%- include('includes/header.ejs') %>
     <body>
         <%- include('includes/navigation.ejs') %>
         <div class="container">
@@ -25,7 +17,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Title">Image for your Article</label>
-                    <input class="form-control" type="file" name="articleImage" id="file">
+                    <input class="form-control" type="file" name="articleImage" id="file" style="padding: 3px;">
                 </div>
         
                 <button class="btn btn-primary" type="submit" value="Submit">Add Article</button>
