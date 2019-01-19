@@ -1,4 +1,5 @@
 <%- include('includes/header.ejs') %>
+
 <body>
     <%- include('includes/navigation.ejs') %>
     <div class="container">
@@ -19,9 +20,15 @@
                     <p class="list-group-item-text">Written By:
                         <%= article.author %>
                     </p>
+                    <p class="list-group-item-text" style="white-space: nowrap; 
+                    width: 850px; 
+                    overflow: hidden;
+                    text-overflow: ellipsis; ">
+                        <%= article.body %>
+                    </p>
                 </div>
                 <div class="float-right">
-                    <img src="<%= article.articleImage %>" alt="" class="img-responsive" width="100px" height="100px">
+                    <img src="<%= article.articleImage %>" alt="" class="img-responsive" width="150px" height="110px">
                 </div>
             </a>
 
